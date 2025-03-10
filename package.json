@@ -1,0 +1,33 @@
+{
+  "name": "erp-basic-system",
+  "version": "1.0.0",
+  "description": "Enterprise Resource Planning (ERP) system with HR and attendance features",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "libs/*"
+  ],
+  "scripts": {
+    "dev:web": "cd apps/web && npm run dev",
+    "dev:api": "cd apps/api && npm run start:dev",
+    "dev": "concurrently \"npm run dev:web\" \"npm run dev:api\"",
+    "build:web": "cd apps/web && npm run build",
+    "build:api": "cd apps/api && npm run build",
+    "build": "npm run build:web && npm run build:api",
+    "start:web": "cd apps/web && npm run start",
+    "start:api": "cd apps/api && npm run start",
+    "start": "concurrently \"npm run start:web\" \"npm run start:api\"",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "concurrently": "^8.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.38.0",
+    "typescript": "^5.0.4"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  }
+}
